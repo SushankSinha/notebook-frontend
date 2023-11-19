@@ -27,7 +27,7 @@ function Login() {
         if(response.status === 200){
           Cookies.set('token', response.data.token);
           localStorage.setItem('userId', response.data.user)
-          const userIdToken = response.data.token;
+          const userIdToken = response.data.user;
           setLoginError(false);
           (navigate(`/dashboard/${userIdToken}`));
           window.location.reload();
