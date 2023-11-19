@@ -49,7 +49,6 @@ function formatDate(myDate) {
   ].join('-');
 }
 
-
   const navigate = useNavigate();
 
   function handleChange(event) {
