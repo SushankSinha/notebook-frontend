@@ -123,7 +123,6 @@ function formatDate(myDate) {
     <div>
       
       <ColorPicker setBgColor={setBgColor}/>
-      <FontPicker />
       <form method="POST" className="create-note">
         <textarea
           name="title"
