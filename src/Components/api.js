@@ -5,7 +5,7 @@ const instance = axios.create({
   alg: "RS256",
   typ : 'jwt',
   withCredentials : true,
-  baseURL: 'http://localhost:7007'
+  baseURL: 'https://notebook-55fv.onrender.com'
 });
 
 const token = Cookies.get('token');
