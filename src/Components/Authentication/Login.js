@@ -28,11 +28,11 @@ function Login() {
         if(response.status === 200){
           Cookies.set('token', response.data.token);
           localStorage.setItem('userId', response.data.user)
-          const userId = localStorage.getItem('userId');
+          const userIdToken = response.data.token;
           setSuccess(true);
           setLoginError(false);
           setTimeout(()=>{
-          (navigate(`/dashboard/${userId}`));
+          (navigate(`/dashboard/${userIdToken}`));
           window.location.reload();
           },2000)
         }
