@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Navbar({log, setLog}) {
+function Navbar() {
   const [success, setSuccess] = useState(false);
   const userId = localStorage.getItem('userId');
 
@@ -22,7 +22,6 @@ function Navbar({log, setLog}) {
       const response = await api.get("/logout");
       if (response.status === 200) {
         setSuccess(true);
-        setLog(true);
         setTimeout(() => {
           navigate("/login");
           setSuccess(false);
@@ -64,7 +63,7 @@ function Navbar({log, setLog}) {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               {/* News */}
             </Typography>
-            {log ? (
+            {(userId === null) ? (
               <>
                 <Button></Button>
                 <Link
