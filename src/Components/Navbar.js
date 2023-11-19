@@ -26,9 +26,6 @@ function Navbar() {
       }
     } catch (error) {
       console.log(error);
-      if(error){
-        navigate('/login')
-      }
     }
   }
 
