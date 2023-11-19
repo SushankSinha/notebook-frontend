@@ -81,7 +81,7 @@ function Login() {
           name = 'email'
           required = {true}
           value = {email}
-          onChange={(e)=>{setEmail(e.target.value); setLoginError(false)}}
+          onChange={(e)=>{setEmail(e.target.value)}}
         />
         <TextField
           id="outlined-basic"
@@ -91,7 +91,7 @@ function Login() {
           name = 'password'
           required = {true}
           value = {password}
-          onChange={(e)=>{setPassword(e.target.value); setLoginError(false)}}
+          onChange={(e)=>{setPassword(e.target.value)}}
         />
 
         <Button
