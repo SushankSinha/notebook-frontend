@@ -27,7 +27,7 @@ function Navbar({log, setLog}) {
           navigate("/login");
           setSuccess(false);
           window.location.reload();
-        }, 2000);
+        }, 1000);
       }
     } catch (error) {
       console.log(error);
@@ -107,7 +107,7 @@ function Navbar({log, setLog}) {
       {success &&
         toast.success("Logged Out Successfully", {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -117,7 +117,7 @@ function Navbar({log, setLog}) {
         })}
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

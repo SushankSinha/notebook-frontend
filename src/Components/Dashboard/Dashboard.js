@@ -10,7 +10,6 @@ import "./Task.css";
 import { Container, TextField, Typography } from "@mui/material";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import { useNavigate } from "react-router-dom";
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import ColorPicker from "./ColorPicker";
@@ -48,8 +47,6 @@ function formatDate(myDate) {
     padTo2Digits(myDate.getDate()),
   ].join('-');
 }
-
-  // const navigate = useNavigate();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -183,7 +180,6 @@ function formatDate(myDate) {
             marginTop: "10px",
           }}
         />
-        {/* <ColorPicker setBgColor={setBgColor}/> */}
       </Container>
 
       {searchTask.map((noteItem) => {
@@ -208,7 +204,7 @@ function formatDate(myDate) {
       {success &&
         toast.success("Task added successfully", {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -218,7 +214,7 @@ function formatDate(myDate) {
         })}
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

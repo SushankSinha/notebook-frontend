@@ -11,6 +11,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,9 +23,10 @@ function Register() {
     const response = await api.post(`/register`,  {name : name, email: email, password : password});
 
     if (response.status === 201) {
-      window.alert('Account Created');
-
-      navigate("/login");
+      setSuccess(true)
+      setTimeout(()=>{
+        navigate("/login");
+      },1000)
     }      
   } catch (error) {
         
@@ -33,6 +35,7 @@ function Register() {
   };
 
   return (
+    <div>
     <form method="POST">
     <Box
       style={{
@@ -116,6 +119,30 @@ function Register() {
       </Paper>
     </Box>
     </form>
+    {success &&
+        toast.success("Account created", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        })}
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        />
+    </div>
   );
 }
 

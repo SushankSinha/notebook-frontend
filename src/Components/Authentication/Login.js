@@ -7,14 +7,15 @@ import { Link, useNavigate} from "react-router-dom";
 import login from "./Photos/login.png";
 import api from '../api'
 import Cookies from 'js-cookie';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({setLog}) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [loginError, setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
     async function handleSubmit(e) {
@@ -28,13 +29,21 @@ function Login({setLog}) {
           Cookies.set('token', response.data.token);
           localStorage.setItem('userId', response.data.user)
           const userIdToken = response.data.user;
+          setSuccess(true)
           setLog(false)
-          // setLoginError(false);
-          navigate(`/dashboard/${userIdToken}`);
+          setLoginError(false);
+          setTimeout(()=>{
+            navigate(`/dashboard/${userIdToken}`);
+            window.location.reload()
+          },1000)
+          
         }
   
       } catch (error) {
-        // setLoginError(true)
+        setLoginError(true)
+        setTimeout(() => {
+          setLoginError(false)
+        }, 1000);
        console.log(error)
       }
 
@@ -108,20 +117,20 @@ function Login({setLog}) {
       </Paper>
     </Box>
     </ form>
-    {/* {success && (toast.success("Login Successful", {
+    {success && (toast.success("Login Successful", {
 position: "top-right",
-autoClose: 2000,
+autoClose: 1000,
 hideProgressBar: false,
 closeOnClick: true,
 pauseOnHover: true,
 draggable: true,
 progress: undefined,
 theme: "colored",
-}))} */}
+}))}
 
-{/* {loginError && (toast.error("Invalid credentials!", {
+{loginError && (toast.error("Invalid credentials!", {
 position: "top-right",
-autoClose: 2000,
+autoClose: 1000,
 hideProgressBar: false,
 closeOnClick: true,
 pauseOnHover: true,
@@ -132,7 +141,7 @@ theme: "colored",
 
     <ToastContainer
 position="top-right"
-autoClose={2000}
+autoClose={1000}
 hideProgressBar={false}
 newestOnTop={false}
 closeOnClick
@@ -141,7 +150,7 @@ pauseOnFocusLoss
 draggable
 pauseOnHover
 theme="colored"
-/> */}
+/>
     </>
   );
 }
