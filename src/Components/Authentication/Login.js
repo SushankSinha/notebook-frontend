@@ -14,7 +14,6 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [success, setSuccess] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const navigate = useNavigate();
 
@@ -29,12 +28,9 @@ function Login() {
           Cookies.set('token', response.data.token);
           localStorage.setItem('userId', response.data.user)
           const userIdToken = response.data.token;
-          setSuccess(true);
           setLoginError(false);
-          setTimeout(()=>{
           (navigate(`/dashboard/${userIdToken}`));
           window.location.reload();
-          },2000)
         }
   
       } catch (error) {
@@ -112,7 +108,7 @@ function Login() {
       </Paper>
     </Box>
     </ form>
-    {success && (toast.success("Login Successful", {
+    {/* {success && (toast.success("Login Successful", {
 position: "top-right",
 autoClose: 2000,
 hideProgressBar: false,
@@ -121,7 +117,7 @@ pauseOnHover: true,
 draggable: true,
 progress: undefined,
 theme: "colored",
-}))}
+}))} */}
 
 {loginError && (toast.error("Invalid credentials!", {
 position: "top-right",
