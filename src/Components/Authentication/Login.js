@@ -10,7 +10,7 @@ import Cookies from 'js-cookie';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
-function Login() {
+function Login({setLog}) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +28,7 @@ function Login() {
           Cookies.set('token', response.data.token);
           localStorage.setItem('userId', response.data.user)
           const userIdToken = response.data.user;
+          setLog(false)
           // setLoginError(false);
           navigate(`/dashboard/${userIdToken}`);
         }

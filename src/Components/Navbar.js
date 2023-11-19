@@ -11,35 +11,19 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Navbar() {
+function Navbar({log, setLog}) {
   const [displayAuth, setDisplayAuth] = useState(true);
   const [success, setSuccess] = useState(false);
   const userId = localStorage.getItem('userId');
 
   const navigate = useNavigate();
 
-  async function userInfo(){
-    try {
-      const response = await api.get(`/dashboard/${userId}`)
-      if(response.status===200){
-        setDisplayAuth(false);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(()=>{
-    userInfo();
-      /* eslint-disable react-hooks/exhaustive-deps */
-  },[displayAuth]);
-
   async function userLogout() {
     try {
       const response = await api.get("/logout");
       if (response.status === 200) {
         setSuccess(true);
-        setDisplayAuth(true);
+        setLog(true);
         setTimeout(() => {
           navigate("/login");
           setSuccess(false);
@@ -81,7 +65,7 @@ function Navbar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               {/* News */}
             </Typography>
-            {displayAuth ? (
+            {log ? (
               <>
                 <Button></Button>
                 <Link

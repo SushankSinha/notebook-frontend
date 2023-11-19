@@ -5,17 +5,19 @@ import { Routes, Route, Navigate} from "react-router-dom";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Navbar from "./Components/Navbar";
 import NotFound from "./Components/Routes/NotFound";
+import { useState } from "react";
 
 function App() {
 
+  const [log, setLog] = useState(true)
   const userId = localStorage.getItem('userId');
 
   return (
     <div className="App apply-font" >
-      <Navbar />
+      <Navbar log = {log} setLog={setLog} />
       <Routes>
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setLog = {setLog} />} />
         <Route path="/reset_password" element={<ForgetPassword />} />
         <Route path={`/dashboard/${userId}`} element={<Dashboard />} />
         <Route path="/404" element={<NotFound />} />
