@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import ColorPicker from "./ColorPicker";
-import FontPicker from './FontPicker'
 
 function Dashboard() {
   const [isExpanded, setExpanded] = useState(false);

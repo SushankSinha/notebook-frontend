@@ -15,7 +15,6 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
     "dayjs": "^1.11.9",
-    "font-picker-react": "^3.5.2",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
