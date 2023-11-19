@@ -10,7 +10,7 @@ import "./Task.css";
 import { Container, TextField, Typography } from "@mui/material";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import ColorPicker from "./ColorPicker";
@@ -49,7 +49,7 @@ function formatDate(myDate) {
   ].join('-');
 }
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -102,9 +102,6 @@ function formatDate(myDate) {
       }
     } catch (error) {
       console.log(error);
-      if (error) {
-        navigate("/login");
-      }
     }
   }
 
