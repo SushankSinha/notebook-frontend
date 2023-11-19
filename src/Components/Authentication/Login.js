@@ -29,8 +29,7 @@ function Login() {
           localStorage.setItem('userId', response.data.user)
           const userIdToken = response.data.user;
           setLoginError(false);
-          (navigate(`/dashboard/${userIdToken}`));
-          window.location.reload();
+          navigate(`/dashboard/${userIdToken}`);
         }
   
       } catch (error) {
