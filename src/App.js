@@ -20,7 +20,7 @@ function App() {
         <Route path={`/dashboard/${userId}`} element={<Dashboard />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate replace to="/404" />} />
-        <Route path="/" element={<Navigate replace to={`/dashboard/:id`} />} />
+        <Route path="/" element={<Navigate replace to={`/login`} />} />
       </Routes>
     </div>
   );
