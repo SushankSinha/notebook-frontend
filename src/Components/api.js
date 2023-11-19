@@ -5,6 +5,8 @@ const instance = axios.create({
   alg: "RS256",
   typ : 'jwt',
   withCredentials : true,
+  secure : true,
+  httpOnly : false,
   baseURL: 'https://notebook-55fv.onrender.com'
 });
 
