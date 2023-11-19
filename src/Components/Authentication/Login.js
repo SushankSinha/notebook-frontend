@@ -14,7 +14,7 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(false);
+  // const [loginError, setLoginError] = useState(false);
   const navigate = useNavigate();
 
     async function handleSubmit(e) {
@@ -28,12 +28,12 @@ function Login() {
           Cookies.set('token', response.data.token);
           localStorage.setItem('userId', response.data.user)
           const userIdToken = response.data.user;
-          setLoginError(false);
+          // setLoginError(false);
           navigate(`/dashboard/${userIdToken}`);
         }
   
       } catch (error) {
-        setLoginError(true)
+        // setLoginError(true)
        console.log(error)
       }
 
@@ -118,7 +118,7 @@ progress: undefined,
 theme: "colored",
 }))} */}
 
-{loginError && (toast.error("Invalid credentials!", {
+{/* {loginError && (toast.error("Invalid credentials!", {
 position: "top-right",
 autoClose: 2000,
 hideProgressBar: false,
@@ -140,7 +140,7 @@ pauseOnFocusLoss
 draggable
 pauseOnHover
 theme="colored"
-/>
+/> */}
     </>
   );
 }
