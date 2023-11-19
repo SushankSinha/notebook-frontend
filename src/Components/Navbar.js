@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,7 +12,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Navbar({log, setLog}) {
-  const [displayAuth, setDisplayAuth] = useState(true);
   const [success, setSuccess] = useState(false);
   const userId = localStorage.getItem('userId');
 
