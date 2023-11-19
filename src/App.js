@@ -8,7 +8,7 @@ import NotFound from "./Components/Routes/NotFound";
 
 function App() {
 
-  // const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem('userId');
 
   return (
     <div className="App apply-font" >
@@ -17,10 +17,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset_password" element={<ForgetPassword />} />
-        <Route path= "/dashboard/:id" element={<Dashboard />} />
+        <Route path={`/dashboard/${userId}`} element={<Dashboard />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate replace to="/404" />} />
-        <Route path="/" element={<Navigate replace to= "/dashboard/:id" />} />
+        <Route path="/" element={<Navigate replace to={`/login`} />} />
       </Routes>
     </div>
   );
