@@ -7,8 +7,8 @@ import { Link, useNavigate} from "react-router-dom";
 import login from "./Photos/login.png";
 import api from '../api'
 import Cookies from 'js-cookie';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
 
