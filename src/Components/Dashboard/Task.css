@@ -1,0 +1,71 @@
+html {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .note {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 10px;
+    width: 30%;
+    margin-left: 16px;
+    margin-top: 3%;
+    float: left;
+  }
+  .note h1 {
+    font-size: 1.1em;
+    margin-bottom: 6px;
+  }
+  .note p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .note button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: rgba(10, 10, 64, 0.519);
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  form.create-note {
+    position: relative;
+    width: 50%;
+    margin: 30px auto 20px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(5, 83, 129);
+  }
+  form.create-note input,
+  form.create-note textarea {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2em;
+    font-family: inherit;
+    resize: none;
+  }
+  form.create-note button {
+    position: absolute;
+    right: -40px;
+    bottom: 0px;
+    background: rgb(5, 83, 129);
+    color: #6fa9be;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 3px rgb(5, 83, 129);
+    cursor: pointer;
+    outline: none;
+  }
+  
