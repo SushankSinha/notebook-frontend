@@ -21,6 +21,7 @@ function Navbar() {
     try {
       const response = await api.get("/logout");
       if (response.status === 200) {
+        localStorage.removeItem('userId')
         setSuccess(true);
         setTimeout(() => {
           navigate("/login");
@@ -63,7 +64,7 @@ function Navbar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               {/* News */}
             </Typography>
-            {(userId === null) ? (
+            {(!userId) ? (
               <>
                 <Button></Button>
                 <Link
