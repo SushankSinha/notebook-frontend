@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Sketch from '@uiw/react-color-sketch';
-import Button from "@mui/material/Button";
 
 function ColorPicker ({setBgColor}){
     const [hex, setHex] = useState("#fff");
@@ -15,9 +14,9 @@ function ColorPicker ({setBgColor}){
             setBgColor(color.hex)
           }}
         />}
-        <Button type='button' style={{margin : '5px', float : 'right', width : '125px', wordWrap : 'break-word'}} onClick={() => setDisplayColor(!displayColor)}>
+        <button type='button' className='btn btn-primary' style={{margin : '5px', float : 'right', width : '125px', wordWrap : 'break-word'}} onClick={() => setDisplayColor(!displayColor)}>
           Theme
-        </Button>
+        </button>
       </div>
     );
   };
