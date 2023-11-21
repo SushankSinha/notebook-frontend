@@ -43,7 +43,6 @@ function Navbar() {
         <AppBar position="static">
           <Toolbar>
             <Link
-              to= {`/dashboard/${userId}`}
               style={{ color: "white", textDecoration: "none" }}
             >
               <EditNoteIcon style={{ marginLeft: "1%" }} />
@@ -57,7 +56,6 @@ function Navbar() {
               }}
             >
               <Link
-                to={`/dashboard/${userId}`}
                 style={{ color: "white", textDecoration: "none" }}
               >
                 {" "}
