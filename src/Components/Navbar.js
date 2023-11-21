@@ -10,7 +10,7 @@ import api from "./api";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ColorPicker from "./ColorPicker";
+import ColorPicker from "./Dashboard/ColorPicker";
 
 function Navbar() {
   const [success, setSuccess] = useState(false);
@@ -92,7 +92,7 @@ function Navbar() {
                 </Link>
               </>
             ) : (<>
-              <ColorPicker setBgColor={setBgColor}/>
+              <Button style={{ color: "white", textDecoration: "none", fontWeight: "bold" }}><ColorPicker setBgColor={setBgColor}/></Button>
               <Button
                 color="inherit"
                 style={{
