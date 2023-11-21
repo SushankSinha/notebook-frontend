@@ -14,7 +14,7 @@ function ColorPicker ({setBgColor}){
             setBgColor(color.hex)
           }}
         />}
-        <button type='button' className='btn btn-success' style={{margin : '5px', float : 'right', width : '125px', wordWrap : 'break-word'}} onClick={() => setDisplayColor(!displayColor)}>
+        <button type='button' className='btn btn-primary' style={{margin : '5px', float : 'right', width : '125px', wordWrap : 'break-word'}} onClick={() => setDisplayColor(!displayColor)}>
           Change background
         </button>
       </div>

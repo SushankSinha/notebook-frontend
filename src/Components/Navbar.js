@@ -92,7 +92,7 @@ function Navbar() {
                 </Link>
               </>
             ) : (<>
-              <Button><ColorPicker setBgColor={setBgColor}/></Button>
+              <ColorPicker setBgColor={setBgColor}/>
               <Button
                 color="inherit"
                 style={{
