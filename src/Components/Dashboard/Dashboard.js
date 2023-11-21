@@ -12,12 +12,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
-import ColorPicker from "./ColorPicker";
 
 function Dashboard() {
   const [isExpanded, setExpanded] = useState(false);
   const [data, setData] = useState([]);
-  const [bgColor, setBgColor] = useState()
 
   const [note, setNote] = useState({
     title: "",
@@ -29,7 +27,6 @@ function Dashboard() {
   const [success, setSuccess] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const userId = localStorage.getItem('userId');
-  document.body.style.backgroundColor = `${bgColor}`
   
 
 const myDate = new Date();
@@ -115,7 +112,6 @@ function formatDate(myDate) {
   return (
     <div>
       
-      <ColorPicker setBgColor={setBgColor}/>
       <form method="POST" className="create-note">
         <textarea
           name="title"
