@@ -90,7 +90,7 @@ function Navbar() {
                 </Link>
               </>
             ) : (<>
-              <Button style={{ color: "white", textDecoration: "none", fontWeight: "bold" }}><ColorPicker setBgColor={setBgColor}/></Button>
+              <ColorPicker setBgColor={setBgColor}/>
               <Button
                 color="inherit"
                 style={{
