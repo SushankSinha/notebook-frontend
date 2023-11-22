@@ -10,6 +10,7 @@ import api from "./api";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Cookies from 'js-cookie';
 
 function Navbar() {
   const [success, setSuccess] = useState(false);
@@ -21,7 +22,8 @@ function Navbar() {
     try {
       const response = await api.get("/logout");
       if (response.status === 200) {
-        localStorage.removeItem('userId')
+        localStorage.removeItem('userId');
+        Cookies.remove('token')
         setSuccess(true);
         setTimeout(() => {
           navigate("/login");
