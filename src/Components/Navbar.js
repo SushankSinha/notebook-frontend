@@ -10,13 +10,10 @@ import api from "./api";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ColorPicker from "./Dashboard/ColorPicker";
 
 function Navbar() {
   const [success, setSuccess] = useState(false);
-  const [bgColor, setBgColor] = useState()
   const userId = localStorage.getItem('userId');
-  document.body.style.backgroundColor = `${bgColor}`
 
   const navigate = useNavigate();
 
@@ -89,8 +86,7 @@ function Navbar() {
                   </Button>
                 </Link>
               </>
-            ) : (<>
-              <ColorPicker setBgColor={setBgColor}/>
+            ) : (              
               <Button
                 color="inherit"
                 style={{
@@ -102,7 +98,6 @@ function Navbar() {
               >
                 Logout
               </Button>
-              </>
             )}
           </Toolbar>
         </AppBar>
