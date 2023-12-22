@@ -46,14 +46,13 @@ function Task(props) {
   };
 
   async function handleSubmit () {
-    
+    setChecked(!IsChecked)
     try {
         const response = await api.put(
-          `/task/${userId}/edit/${props.id}`, {status : IsChecked});
+          `/task/${userId}/edit/${props.id}`, {title : title, content: content, date : date, category : category, userId: userId, status : IsChecked});
         if (response.status === 201) {
-          setChecked(!IsChecked)
           console.log("Item updated successfully");
-          // window.location.reload();
+          window.location.reload();
         } else {
           console.error("Failed to update item");
           setChecked(false)
