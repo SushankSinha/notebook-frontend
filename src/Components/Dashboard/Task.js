@@ -75,9 +75,8 @@ function Task(props) {
         <Typography>
           Date : <b style={{ color: "red" }}>{props.date}</b>
         </Typography>
-        <Button
-      onClick={()=>{setChecked(!IsChecked); handleSubmit();}}
-      >{IsChecked? "Completed" : "Incomplete"}</Button>
+        <Button variant = "outlined"  onClick={()=>{setChecked(!IsChecked); handleSubmit();}}
+      >Status : {IsChecked? "Completed" : "Incomplete"}</Button>
       </CardContent>
       <hr style={{border : '1px solid grey'}}/>
       <CardActions style = {{margin: 'auto', display : 'flex', flexDirection : 'row', justifyContent : 'center'}}>
