@@ -7,7 +7,6 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import api from '../api';
-import Checkbox from '@mui/material/Checkbox';
 
 function Task(props) {
   const [title, setTitle] = useState(props.title);
@@ -15,7 +14,7 @@ function Task(props) {
   const [date, setDate] = useState(props.date);
   const [category, setCategory] = useState(props.category);
   const [isclicked, setIsClicked] = useState(false);
-  const [checked, setChecked] = useState(props.status);
+  const [IsChecked, setChecked] = useState(props.status);
   const userId = localStorage.getItem('userId');
 
   const handleUpdate = async () => {
@@ -49,7 +48,7 @@ function Task(props) {
   async function handleSubmit () {
     try {
         const response = await api.put(
-          `/task/${userId}/edit/${props.id}`, {status : checked});
+          `/task/${userId}/edit/${props.id}`, {status : IsChecked});
         if (response.status === 201) {
           console.log("Item updated successfully");
           window.location.reload();
@@ -64,12 +63,6 @@ function Task(props) {
 
   return (
     <Card sx={{display : 'inline-block', width: 250, marginLeft: "3%", backgroundColor : '#EBDBDB' }}>
-    <Checkbox
-      checked={checked}
-      style={{float : 'left'}}
-      onClick={()=>{setChecked(!checked); handleSubmit();}}
-      inputProps={{ 'aria-label': 'controlled' }}
-      />
       <CardContent sx = {{alignItems : 'center'}}>
         <Typography variant="h5" component="div">
           {props.title}
@@ -77,11 +70,14 @@ function Task(props) {
         <br />
         <Typography sx={{ marginBottom: "15px" }}>{props.content}</Typography>
         <Typography>
-          Date : <b style={{ color: "red" }}>{props.date}</b>
-        </Typography>
-        <Typography>
           Category : <b style={{ color: "red" }}>{props.category}</b>
         </Typography>
+        <Typography>
+          Date : <b style={{ color: "red" }}>{props.date}</b>
+        </Typography>
+        <Button
+      onClick={()=>{setChecked(!IsChecked); handleSubmit();}}
+      >{IsChecked? "Completed" : "Incomplete"}</Button>
       </CardContent>
       <hr style={{border : '1px solid grey'}}/>
       <CardActions style = {{margin: 'auto', display : 'flex', flexDirection : 'row', justifyContent : 'center'}}>
@@ -137,58 +133,3 @@ function Task(props) {
 
 export default Task;
 
-// import * as React from 'react';
-// import Button from '@mui/material/Button';
-// import Dialog from '@mui/material/Dialog';
-// import DialogActions from '@mui/material/DialogActions';
-// import DialogContent from '@mui/material/DialogContent';
-// import DialogContentText from '@mui/material/DialogContentText';
-// import DialogTitle from '@mui/material/DialogTitle';
-// import useMediaQuery from '@mui/material/useMediaQuery';
-// import { useTheme } from '@mui/material/styles';
-
-// export default function ResponsiveDialog() {
-//   const [open, setOpen] = React.useState(false);
-//   const theme = useTheme();
-//   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-
-//   const handleClickOpen = () => {
-//     setOpen(true);
-//   };
-
-//   const handleClose = () => {
-//     setOpen(false);
-//   };
-
-//   return (
-//     <React.Fragment>
-//       <Button variant="outlined" onClick={handleClickOpen}>
-//         Open responsive dialog
-//       </Button>
-//       <Dialog
-//         fullScreen={fullScreen}
-//         open={open}
-//         onClose={handleClose}
-//         aria-labelledby="responsive-dialog-title"
-//       >
-//         <DialogTitle id="responsive-dialog-title">
-//           {"Use Google's location service?"}
-//         </DialogTitle>
-//         <DialogContent>
-//           <DialogContentText>
-//             Let Google help apps determine location. This means sending anonymous
-//             location data to Google, even when no apps are running.
-//           </DialogContentText>
-//         </DialogContent>
-//         <DialogActions>
-//           <Button autoFocus onClick={handleClose}>
-//             Disagree
-//           </Button>
-//           <Button onClick={handleClose} autoFocus>
-//             Agree
-//           </Button>
-//         </DialogActions>
-//       </Dialog>
-//     </React.Fragment>
-//   );
-// }
