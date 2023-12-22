@@ -51,7 +51,7 @@ function Task(props) {
 
   useEffect(() => {
     (async () => {
-      const users = await api.put(
+      const response = await api.put(
         `/task/${userId}/edit/${props.id}`, {status : IsChecked});
         if (response.status === 201) {
           console.log("Item updated successfully");
