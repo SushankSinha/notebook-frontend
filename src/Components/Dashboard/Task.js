@@ -72,6 +72,7 @@ function Task(props) {
         <Typography>
           Category : <b style={{ color: "red" }}>{props.category}</b>
         </Typography>
+        <br/>
         <Typography>
           Date : <b style={{ color: "red" }}>{props.date}</b>
         </Typography>
