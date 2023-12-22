@@ -193,6 +193,7 @@ function formatDate(myDate) {
               content={noteItem.content}
               date={noteItem.date}
               category={noteItem.category}
+              status={noteItem.status}
             />
           </div>
         );

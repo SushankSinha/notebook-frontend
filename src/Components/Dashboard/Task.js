@@ -49,7 +49,7 @@ function Task(props) {
   async function handleSubmit () {
     try {
         const response = await api.put(
-          `/task/${userId}/edit/${props.id}`, {title : title, content: content, date:date, category:category, userId:userId, status : checked});
+          `/task/${userId}/edit/${props.id}`, {status : checked});
         if (response.status === 201) {
           console.log("Item updated successfully");
           window.location.reload();
