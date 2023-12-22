@@ -42,7 +42,7 @@ function Task(props) {
   }
 
   const toggleEdit = () => {
-    setIsClicked(!isclicked); 
+    setIsClicked(!isclicked);
   };
 
   return (
