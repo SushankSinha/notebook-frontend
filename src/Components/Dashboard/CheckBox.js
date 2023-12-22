@@ -36,15 +36,11 @@ function CheckBox(props) {
       }
   };
 
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
-
   return (
     <>
     <Checkbox
       checked={checked}
-      onChange={()=>{handleChange();handleClickOpen()}}
+      onChange={(e)=>{setChecked(e.target.checked);handleClickOpen();}}
       inputProps={{ 'aria-label': 'controlled' }}
       />
       {checked && (<React.Fragment>
