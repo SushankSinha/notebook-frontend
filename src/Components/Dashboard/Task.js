@@ -15,7 +15,7 @@ function Task(props) {
   const [date, setDate] = useState(props.date);
   const [category, setCategory] = useState(props.category);
   const [isclicked, setIsClicked] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(props.status);
   const userId = localStorage.getItem('userId');
 
   const handleUpdate = async () => {
@@ -49,7 +49,7 @@ function Task(props) {
   async function handleSubmit () {
     try {
         const response = await api.put(
-          `/task/${userId}/edit/${props.id}`, {status : checked});
+          `/task/${userId}/edit/${props.id}`, {title : title, content: content, date:date, category:category, userId:userId, status : checked});
         if (response.status === 201) {
           console.log("Item updated successfully");
           window.location.reload();
