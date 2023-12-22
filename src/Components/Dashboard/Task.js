@@ -67,7 +67,7 @@ function Task(props) {
     <Checkbox
       checked={checked}
       style={{float : 'left'}}
-      onChange={()=>{setChecked(!checked); handleSubmit();}}
+      onChange={(e)=>{setChecked(e.target.checked); handleSubmit();}}
       inputProps={{ 'aria-label': 'controlled' }}
       />
       <CardContent sx = {{alignItems : 'center'}}>
