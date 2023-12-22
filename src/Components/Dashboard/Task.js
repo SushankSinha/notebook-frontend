@@ -46,25 +46,20 @@ function Task(props) {
   };
 
   const toggleCompleteButton = ()=>{
-    setChecked(!IsChecked)
+    setChecked(!IsChecked);
   }
 
-  async function handleSubmit () {
-    
-    try {
-        const response = await api.put(
-          `/task/${userId}/edit/${props.id}`, {status : IsChecked});
+  useEffect(() => {
+    (async () => {
+      const users = await api.put(
+        `/task/${userId}/edit/${props.id}`, {status : IsChecked});
         if (response.status === 201) {
           console.log("Item updated successfully");
-          window.location.reload();
         } else {
           console.error("Failed to update item");
-          setChecked(false)
-        }
-      } catch (error) {
-        console.error("Error", error);
-      }
-  };
+          setChecked(false);
+        }      
+    })()});
 
   return (
     <Card sx={{display : 'inline-block', width: 250, marginLeft: "3%", backgroundColor : '#EBDBDB' }}>
@@ -81,7 +76,7 @@ function Task(props) {
           Date : <b style={{ color: "red" }}>{props.date}</b>
         </Typography>
         <br/>
-        <Button variant = "outlined" onClick={()=>{toggleCompleteButton();handleSubmit()}}
+        <Button variant = "outlined" onClick={()=>{toggleCompleteButton()}}
       >Status : {IsChecked? "Completed" : "Incomplete"}</Button>
       </CardContent>
       <hr style={{border : '1px solid grey'}}/>
