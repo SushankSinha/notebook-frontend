@@ -46,12 +46,14 @@ function Task(props) {
   };
 
   async function handleSubmit () {
+    
     try {
         const response = await api.put(
           `/task/${userId}/edit/${props.id}`, {status : IsChecked});
         if (response.status === 201) {
+          setChecked(!IsChecked)
           console.log("Item updated successfully");
-          window.location.reload();
+          // window.location.reload();
         } else {
           console.error("Failed to update item");
           setChecked(false)
@@ -75,7 +77,8 @@ function Task(props) {
         <Typography>
           Date : <b style={{ color: "red" }}>{props.date}</b>
         </Typography>
-        <Button variant = "outlined"  onClick={()=>{setChecked(!IsChecked); handleSubmit();}}
+        <br/>
+        <Button variant = "outlined" onClick={handleSubmit}
       >Status : {IsChecked? "Completed" : "Incomplete"}</Button>
       </CardContent>
       <hr style={{border : '1px solid grey'}}/>
