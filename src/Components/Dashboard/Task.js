@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import api from '../api';
-import Checkbox from "./CheckBox";
+import CheckBox from "./CheckBox";
 
 function Task(props) {
   const [title, setTitle] = useState(props.title);
@@ -47,8 +47,8 @@ function Task(props) {
 
   return (
     <Card sx={{display : 'inline-block', width: 250, marginLeft: "3%", backgroundColor : '#EBDBDB' }}>
+    <CheckBox props={props.id} style = {{float:"left"}}/>
       <CardContent sx = {{alignItems : 'center'}}>
-      <Checkbox props={props.id} style = {{float:"left"}}/>
         <Typography variant="h5" component="div">
           {props.title}
         </Typography>

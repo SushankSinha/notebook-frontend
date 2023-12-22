@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -9,9 +9,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import api from '../api';
 
 
-export default function Checkbox(props) {
-  const [checked, setChecked] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
+function CheckBox(props) {
+  const [checked, setChecked] = useState(false);
+  const [open, setOpen] = useState(false);
   const userId = localStorage.getItem('userId');
 
   const handleClickOpen = () => {
@@ -74,3 +74,4 @@ export default function Checkbox(props) {
     
   );
 }
+export default CheckBox;
