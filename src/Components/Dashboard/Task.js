@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import api from '../api';
-import CheckBox from "./CheckBox";
+import Checkbox from '@mui/material/Checkbox';
 
 function Task(props) {
   const [title, setTitle] = useState(props.title);
@@ -15,6 +15,7 @@ function Task(props) {
   const [date, setDate] = useState(props.date);
   const [category, setCategory] = useState(props.category);
   const [isclicked, setIsClicked] = useState(false);
+  const [checked, setChecked] = useState(false);
   const userId = localStorage.getItem('userId');
 
   const handleUpdate = async () => {
@@ -45,9 +46,30 @@ function Task(props) {
     setIsClicked(!isclicked);
   };
 
+  async function handleSubmit () {
+    try {
+        const response = await api.put(
+          `/task/${userId}/edit/${props.id}`, {status : checked});
+        if (response.status === 201) {
+          console.log("Item updated successfully");
+          window.location.reload();
+        } else {
+          console.error("Failed to update item");
+          setChecked(false)
+        }
+      } catch (error) {
+        console.error("Error", error);
+      }
+  };
+
   return (
     <Card sx={{display : 'inline-block', width: 250, marginLeft: "3%", backgroundColor : '#EBDBDB' }}>
-    <CheckBox props={props.id} style = {{float:"left"}}/>
+    <Checkbox
+      checked={checked}
+      style={{float : 'left'}}
+      onChange={()=>{setChecked(true); handleSubmit();}}
+      inputProps={{ 'aria-label': 'controlled' }}
+      />
       <CardContent sx = {{alignItems : 'center'}}>
         <Typography variant="h5" component="div">
           {props.title}
