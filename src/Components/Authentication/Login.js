@@ -21,13 +21,14 @@ function Login({setLog}) {
   const navigate = useNavigate();
 
     async function handleSubmit(e) {
-      setLoginLoader(true)
       e.preventDefault();
   
+
+
       try {
 
         const response = await api.post(`/login`, {email : email, password : password}, {credentials : 'include'});
-
+        setLoginLoader(true)
         if(response.status === 200){
           setLoginLoader(false)
           Cookies.set('token', response.data.token);
@@ -119,8 +120,8 @@ function Login({setLog}) {
         <h5 style={{ margin: "10px", fontSize : '15px' }}><Link to="/reset_password">Reset Password</Link> | <Link to="/register">Create an Account</Link>
         </h5>
       </Paper>
+      {loginLoader && (<LoginLoder/>)}
     </Box>
-    {loginLoader && <LoginLoder/>}
     </ form>
     {success && (toast.success("Login Successful", {
 position: "top-right",
