@@ -86,7 +86,7 @@ function Login({setLog}) {
           }}
           alt="Login"
         />
-
+        {loginLoader && (<CircularProgress />)}
         <TextField
           id="outlined-basic"
           label="Email"
@@ -121,7 +121,6 @@ function Login({setLog}) {
         <h5 style={{ margin: "10px", fontSize : '15px' }}><Link to="/reset_password">Reset Password</Link> | <Link to="/register">Create an Account</Link>
         </h5>
       </Paper>
-      {loginLoader && (<CircularProgress />)}
     </Box>
     </ form>
     {success && (toast.success("Login Successful", {
