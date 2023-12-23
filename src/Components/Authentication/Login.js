@@ -9,6 +9,7 @@ import api from '../api'
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoginLoder from "./LoginLoader";
 
 function Login({setLog}) {
 
@@ -16,9 +17,11 @@ function Login({setLog}) {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [loginLoader, setLoginLoader] = useState(false);
   const navigate = useNavigate();
 
     async function handleSubmit(e) {
+      setLoginLoader(true)
       e.preventDefault();
   
       try {
@@ -26,6 +29,7 @@ function Login({setLog}) {
         const response = await api.post(`/login`, {email : email, password : password}, {credentials : 'include'});
 
         if(response.status === 200){
+          setLoginLoader(false)
           Cookies.set('token', response.data.token);
           localStorage.setItem('userId', response.data.user)
           const userIdToken = response.data.user;
@@ -116,6 +120,7 @@ function Login({setLog}) {
         </h5>
       </Paper>
     </Box>
+    {loginLoader && <LoginLoder/>}
     </ form>
     {success && (toast.success("Login Successful", {
 position: "top-right",
