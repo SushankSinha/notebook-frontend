@@ -28,7 +28,6 @@ function Login({setLog}) {
       try {
 
         const response = await api.post(`/login`, {email : email, password : password}, {credentials : 'include'});
-        setLoginLoader(true)
         if(response.status === 200){
           setLoginLoader(false)
           Cookies.set('token', response.data.token);
@@ -110,7 +109,7 @@ function Login({setLog}) {
         />
 
         <Button
-          onClick = {handleSubmit}
+          onClick = {()=>{setLoginLoader(true);handleSubmit();}}
           variant="contained"
           style={{ fontWeight: "bold", margin: "10px" }}
         >
