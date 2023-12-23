@@ -20,11 +20,7 @@ function Login({setLog}) {
   const [loginLoader, setLoginLoader] = useState(false);
   const navigate = useNavigate();
 
-    async function handleSubmit(e) {
-      e.preventDefault();
-  
-
-
+    async function handleSubmit() {
       try {
 
         const response = await api.post(`/login`, {email : email, password : password}, {credentials : 'include'});
@@ -88,7 +84,7 @@ function Login({setLog}) {
         />
         {loginLoader && (<CircularProgress />)}
         <TextField
-          id="outlined-basic"
+          id="outlined-basic1"
           label="Email"
           variant="outlined"
           style={{ margin: "10px" }}
@@ -99,7 +95,7 @@ function Login({setLog}) {
           onChange={(e)=>{setEmail(e.target.value)}}
         />
         <TextField
-          id="outlined-basic"
+          id="outlined-basic2"
           label="Password"
           variant="outlined"
           style={{ margin: "10px" }}
