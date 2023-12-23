@@ -9,7 +9,7 @@ import api from '../api'
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import LoginLoder from "./LoginLoader";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Login({setLog}) {
 
@@ -94,6 +94,7 @@ function Login({setLog}) {
           style={{ margin: "10px" }}
           name = 'email'
           required = {true}
+          type="email"
           value = {email}
           onChange={(e)=>{setEmail(e.target.value)}}
         />
@@ -105,6 +106,7 @@ function Login({setLog}) {
           name = 'password'
           required = {true}
           value = {password}
+          type="password"
           onChange={(e)=>{setPassword(e.target.value)}}
         />
 
@@ -119,7 +121,7 @@ function Login({setLog}) {
         <h5 style={{ margin: "10px", fontSize : '15px' }}><Link to="/reset_password">Reset Password</Link> | <Link to="/register">Create an Account</Link>
         </h5>
       </Paper>
-      {loginLoader && (<LoginLoder/>)}
+      {loginLoader && (<CircularProgress />)}
     </Box>
     </ form>
     {success && (toast.success("Login Successful", {
